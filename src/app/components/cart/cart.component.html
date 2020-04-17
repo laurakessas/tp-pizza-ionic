@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Panier
+    </ion-title>
+    <ion-button slot="end" fill="none" (click)="closeModal()">
+      <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p class="empty" *ngIf="cart.length===0">Le panier est vide</p>
+  <ion-list>
+    <ion-item *ngFor="let item of cart">
+      <ion-avatar slot="start">
+        <img src={{item.pizza.photo}}>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.pizza.nom}}</h2>
+        <p>{{item.pizza.prix}} euros</p>
+      </ion-label>
+      <ion-button (click)="removeQuantity(item)">-</ion-button>
+      {{item.quantity}}
+      <ion-button (click)="addQuantity(item)">+</ion-button>
+      <ion-button slot="end" (click)="removeFromCart(item.pizza.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,20 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Accueil
     </ion-title>
+    <ion-button slot="end" fill="none" (click)="presentModal()">
+      <ion-icon name="cart" slot="icon-only"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-item *ngFor="let item of pizza ">
+      <ion-avatar slot="start">
+        <img src={{item.photo}}>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.nom}}</h2>
+        <p>{{item.prix}} euros</p>
+      </ion-label>
+      <ion-button slot="end" (click)="addToCart(item.id)">+</ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
