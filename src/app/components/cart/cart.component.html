@@ -10,8 +10,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p class="empty" *ngIf="cart.length===0">Le panier est vide</p>
-  <ion-list>
+  <p class="empty" *ngIf="!cart ||cart.length===0">Le panier est vide</p>
+  <ion-list *ngIf="cart">
     <ion-item *ngFor="let item of cart">
       <ion-avatar slot="start">
         <img src={{item.pizza.photo}}>
