@@ -11,11 +11,11 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item routerLink="/detail-pizza" *ngFor="let item of pizza ">
+    <ion-item *ngFor="let item of pizza ">
       <ion-avatar slot="start">
         <img src={{item.photo}}>
       </ion-avatar>
-      <ion-label>
+      <ion-label [routerLink]="'/detail-pizza/'+ item.id">
         <h2>{{item.nom}}</h2>
         <p>{{item.prix}} euros</p>
       </ion-label>

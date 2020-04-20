@@ -3,10 +3,15 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>detail-pizza</ion-title>
+    <ion-title *ngIf="pizza"> {{pizza.nom}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="pizza">
+  <h2>{{pizza.prix}}</h2>
 
+  <h3><img src={{pizza.photo}}></h3>
+  <p *ngFor="let item of pizza.ingredients">
+    {{item}}
+  </p>
 </ion-content>
