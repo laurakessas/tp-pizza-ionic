@@ -11,7 +11,7 @@
   <h2>{{pizza.prix}}</h2>
 
   <h3><img src={{pizza.photo}}></h3>
-  <p *ngFor="let item of pizza.ingredients">
-    {{item}}
+  <p *ngFor="let item of ingredients">
+    {{item.nom}}
   </p>
 </ion-content>
