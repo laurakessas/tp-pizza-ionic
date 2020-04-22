@@ -2,6 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { DetailPizzaPage } from './detail-pizza.page';
+import { IngredientService } from 'src/app/services/ingredient.service';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DetailPizzaPage', () => {
   let component: DetailPizzaPage;
@@ -9,8 +13,9 @@ describe('DetailPizzaPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailPizzaPage ],
-      imports: [IonicModule.forRoot()]
+      declarations: [DetailPizzaPage],
+      imports: [IonicModule.forRoot(), HttpClientTestingModule, RouterTestingModule],
+      providers: [IngredientService]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DetailPizzaPage);
