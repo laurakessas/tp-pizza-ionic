@@ -10,7 +10,9 @@ import CartItemDto from 'src/app/models/cart.dto';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
+
   cart: CartItemDto[];
+
   constructor(
     private modalController: ModalController,
   ) { }

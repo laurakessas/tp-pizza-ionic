@@ -3,16 +3,20 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="pizza"> {{pizza.nom}}</ion-title>
+    <ion-title *ngIf="pizza">{{pizza.nom}}</ion-title>
+    <ion-button slot="end" fill="none" (click)="presentModal()">
+      <ion-icon name="cart" slot="icon-only"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="pizza">
   <h3>{{pizza.prix}} euros</h3>
+  <ion-button (click)="addToCart()">ajouter au panier</ion-button>
   <div class="detailPizza">
-    <img class="imgSize" src={{pizza.photo}}>
-    <ion-list>
-      <h3> Ingrédients</h3>
+    <img class="imgSize" [src]="pizza.photo">
+    <ion-list *ngIf="pizzaIngredient">
+      <h3>Ingrédients</h3>
       <ion-item *ngFor="let item of pizzaIngredient">
         {{item.nom}}
       </ion-item>

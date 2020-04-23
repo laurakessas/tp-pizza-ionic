@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { DetailPizzaPageRoutingModule } from './detail-pizza-routing.module';
 
 import { DetailPizzaPage } from './detail-pizza.page';
+import { CartModule } from 'src/app/components/cart/cart.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailPizzaPageRoutingModule
+    DetailPizzaPageRoutingModule,
+    CartModule
   ],
   declarations: [DetailPizzaPage]
 })
-export class DetailPizzaPageModule {}
+export class DetailPizzaPageModule { }
