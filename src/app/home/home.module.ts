@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { PizzaService } from '../services/pizza.service';
 import { CartModule } from '../components/cart/cart.module';
+import { MenuModule } from '../components/menu/menu.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { CartModule } from '../components/cart/cart.module';
       }
     ]),
     CartModule,
+    MenuModule
   ],
 
   declarations: [HomePage],

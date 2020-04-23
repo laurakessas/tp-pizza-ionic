@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../services/pizza.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, MenuController } from '@ionic/angular';
 import { CartComponent } from '../components/cart/cart.component';
 import PizzaDto from '../models/pizza.dto';
 import CartItemDto from '../models/cart.dto';
@@ -17,12 +17,14 @@ export class HomePage implements OnInit {
   constructor(
     private pizzaService: PizzaService,
     public modalController: ModalController,
+    private menu: MenuController,
   ) { }
 
 
   async ngOnInit() {
     this.pizza = await this.pizzaService.getAll().toPromise();
   }
+
 
   async presentModal() {
     const modal = await this.modalController.create({
@@ -47,4 +49,7 @@ export class HomePage implements OnInit {
 
     localStorage.setItem('cart', JSON.stringify(cart));
   }
+
+
+
 }

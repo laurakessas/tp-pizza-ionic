@@ -31,7 +31,6 @@ export class DetailPizzaPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.pizzaId = params.id;
-      console.log("DetailPizzaPage -> ngOnInit -> pizzaId", this.pizzaId)
       this.load();
 
     })
