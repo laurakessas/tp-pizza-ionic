@@ -14,6 +14,7 @@ export class DetailPizzaPage implements OnInit {
   pizza: PizzaDto;
   pizzaId: number;
   ingredients: IngredientDto[] = [];
+  pizzaIngredient: IngredientDto[];
   constructor(
     private route: ActivatedRoute,
     private pizzaService: PizzaService,
@@ -32,10 +33,10 @@ export class DetailPizzaPage implements OnInit {
     this.pizza = await this.pizzaService.getOne(this.pizzaId).toPromise();
     console.log("pizza", this.pizza);
     this.ingredients = await this.ingredientService.getAll().toPromise();
-    console.log("DetailPizzaPage -> load -> this.ingredients", this.ingredients);
+    this.pizzaIngredient = [];
 
     for (const ingredient of this.pizza.ingredients) {
-      this.ingredients.push(this.ingredients.find(x => x.id === ingredient))
+      this.pizzaIngredient.push(this.ingredients.find(x => x.id === ingredient))
     }
 
 
