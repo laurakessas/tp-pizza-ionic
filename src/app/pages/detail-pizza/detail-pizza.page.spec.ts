@@ -6,6 +6,7 @@ import { IngredientService } from 'src/app/services/ingredient.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MenuModule } from 'src/app/components/menu/menu.module';
 
 describe('DetailPizzaPage', () => {
   let component: DetailPizzaPage;
@@ -14,7 +15,7 @@ describe('DetailPizzaPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [DetailPizzaPage],
-      imports: [IonicModule.forRoot(), HttpClientTestingModule, RouterTestingModule],
+      imports: [IonicModule.forRoot(), HttpClientTestingModule, RouterTestingModule, MenuModule],
       providers: [IngredientService]
     }).compileComponents();
 

@@ -7,6 +7,8 @@ import { CartModule } from '../components/cart/cart.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MenuModule } from '../components/menu/menu.module';
+import { MenuComponent } from '../components/menu/menu.component';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -15,7 +17,7 @@ describe('HomePage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HomePage],
-      imports: [IonicModule.forRoot(), CartModule, HttpClientTestingModule, RouterTestingModule],
+      imports: [IonicModule.forRoot(), CartModule, HttpClientTestingModule, RouterTestingModule, MenuModule],
       providers: [PizzaService]
     }).compileComponents();
 

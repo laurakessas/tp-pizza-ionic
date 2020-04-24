@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PizzaService } from '../services/pizza.service';
 import { ModalController, MenuController } from '@ionic/angular';
 import { CartComponent } from '../components/cart/cart.component';
@@ -12,6 +12,7 @@ import CartItemDto from '../models/cart.dto';
 })
 export class HomePage implements OnInit {
 
+  @Input() menuAdmin: boolean = true;
   pizza: PizzaDto[];
 
   constructor(
