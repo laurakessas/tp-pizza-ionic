@@ -42,11 +42,38 @@ export class PizzaService {
       })
     );
   }
-  create() {
 
+  create(pizza: PizzaDto) {
+    return this.http.post<PizzaDto>(this.url, pizza).pipe(
+      map(value => {
+        if (value) {
+          return value;
+        } else {
+          throw new Error('Erreur lors du create');
+        }
+      })
+    )
   }
-
-  delete() {
-
+  update(pizza: PizzaDto) {
+    return this.http.put<PizzaDto>(this.url + '/' + pizza.id, pizza).pipe(
+      map(value => {
+        if (value) {
+          return value;
+        } else {
+          throw new Error('Erreur lors du update');
+        }
+      })
+    )
+  }
+  delete(id: number) {
+    return this.http.delete(this.url + '/' + id).pipe(
+      map(value => {
+        if (value) {
+          return value;
+        } else {
+          throw new Error('Erreur lors du delete');
+        }
+      })
+    )
   }
 }

@@ -37,5 +37,9 @@ export class AddIngredientComponent implements OnInit {
     else {
       await this.ingredientService.create(this.newIngredient).toPromise();
     }
+    location.reload();
   }
+
+
+
 }

@@ -10,7 +10,9 @@ import { AddPizzaComponent } from 'src/app/components/add-pizza/add-pizza.compon
   styleUrls: ['./pizzas-admin.page.scss'],
 })
 export class PizzasAdminPage implements OnInit {
-  pizzas: PizzaDto[]
+
+  pizzas: PizzaDto[];
+
   constructor(private pizzaService: PizzaService,
     public modalController: ModalController) { }
 
@@ -18,12 +20,18 @@ export class PizzasAdminPage implements OnInit {
     this.pizzas = await this.pizzaService.getAll().toPromise();
   }
 
-  async presentModal() {
+  async presentModal(pizza?: PizzaDto) {
     const modal = await this.modalController.create({
       component: AddPizzaComponent,
       swipeToClose: true,
+      componentProps: {
+        'pizza': pizza,
+      }
     });
     return await modal.present();
   }
-
+  async deletePizza(id: number) {
+    await this.pizzaService.delete(id).toPromise();
+    location.reload();
+  }
 }

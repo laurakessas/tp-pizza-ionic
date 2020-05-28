@@ -8,3 +8,28 @@
     </ion-button>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <form (ngSubmit)="addOrEditPizza()">
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="newPizza.nom" name="nom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Prix</ion-label>
+      <ion-input type="text" [(ngModel)]="newPizza.prix" name="prix"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Image</ion-label>
+      <ion-input type="text" [(ngModel)]="newPizza.photo" name="photo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ingredient</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let item of ingredientsWrapper">
+      <ion-checkbox [(ngModel)]="item.isChecked" [name]="'ingredient_' + item.ingredient.id"></ion-checkbox>
+      {{item.ingredient.nom}}
+    </ion-item>
+    <button ion-button type="submit" block>Enregistrer</button>
+  </form>
+</ion-content>

@@ -31,4 +31,10 @@ export class IngredientsAdminPage implements OnInit {
 
     return await modal.present();
   }
+
+  async deleteIngredient(id: number) {
+    console.log("id ingredient", id);
+    await this.ingredientService.delete(id).toPromise();
+    location.reload();
+  }
 }
