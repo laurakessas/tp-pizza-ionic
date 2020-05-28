@@ -7,12 +7,15 @@ const routes: Routes = [
   {
     path: 'detail-pizza/:id',
     loadChildren: () => import('./pages/detail-pizza/detail-pizza.module').then(m => m.DetailPizzaPageModule)
-  },  {
-    path: 'ingredients-admin',
-    loadChildren: () => import('./pages/ingredients-admin/ingredients-admin.module').then( m => m.IngredientsAdminPageModule)
   },
-
-
+  {
+    path: 'ingredients-admin',
+    loadChildren: () => import('./pages/ingredients-admin/ingredients-admin.module').then(m => m.IngredientsAdminPageModule)
+  },
+  {
+    path: 'pizzas-admin',
+    loadChildren: () => import('./pages/pizzas-admin/pizzas-admin.module').then(m => m.PizzasAdminPageModule)
+  }
 ];
 
 @NgModule({

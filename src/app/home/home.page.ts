@@ -21,11 +21,9 @@ export class HomePage implements OnInit {
     private menu: MenuController,
   ) { }
 
-
   async ngOnInit() {
     this.pizza = await this.pizzaService.getAll().toPromise();
   }
-
 
   async presentModal() {
     const modal = await this.modalController.create({
@@ -50,7 +48,4 @@ export class HomePage implements OnInit {
 
     localStorage.setItem('cart', JSON.stringify(cart));
   }
-
-
-
 }

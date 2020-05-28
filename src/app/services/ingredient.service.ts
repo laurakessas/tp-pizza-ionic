@@ -21,7 +21,6 @@ export class IngredientService {
         else {
           throw new Error('Aucun ingrédient trouvé')
         }
-
       })
     );
   }
@@ -35,8 +34,43 @@ export class IngredientService {
         else {
           throw new Error('Aucun ingrédient trouvé')
         }
-
       })
     );
+  }
+
+  create(ingredient: IngredientDto) {
+    return this.http.post<IngredientDto>(this.url, ingredient).pipe(
+      map(value => {
+        if (value) {
+          return value;
+        } else {
+          throw new Error('Erreur lors du create');
+        }
+      })
+    )
+  }
+
+  update(ingredient: IngredientDto) {
+    return this.http.put<IngredientDto>(this.url + '/' + ingredient.id, ingredient).pipe(
+      map(value => {
+        if (value) {
+          return value;
+        } else {
+          throw new Error('Erreur lors du update');
+        }
+      })
+    )
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.url + '/' + id).pipe(
+      map(value => {
+        if (value) {
+          return value;
+        } else {
+          throw new Error('Erreur lors du delete');
+        }
+      })
+    )
   }
 }

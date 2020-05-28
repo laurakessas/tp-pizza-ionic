@@ -1,3 +1,20 @@
-<p>
-  add-ingredient works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ajouter un ingrédient
+    </ion-title>
+    <ion-button slot="end" fill="none" (click)="closeModal()">
+      <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form (ngSubmit)="addOrEditIngredient()">
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="newIngredient.nom" name="title"></ion-input>
+    </ion-item>
+
+    <button ion-button type="submit" block>Enregistrer</button>
+  </form>
+</ion-content>

@@ -18,7 +18,7 @@
     <ion-list *ngIf="pizzaIngredient">
       <h3>Ingrédients</h3>
       <ion-item *ngFor="let item of pizzaIngredient">
-        {{item.nom}}
+        <ion-label *ngIf="item">{{item.nom}}</ion-label>
       </ion-item>
     </ion-list>
   </div>

@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart.component';
 
-
 @NgModule({
     imports: [
         CommonModule,

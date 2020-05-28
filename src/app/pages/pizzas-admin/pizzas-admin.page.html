@@ -3,15 +3,15 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Listes des ingrédients</ion-title>
+    <ion-title>Listes des pizzas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="presentModal()">Ajouter un ingrédient</ion-button>
-  <ion-list *ngIf="ingredients">
-    <ion-item *ngFor="let item of ingredients">
-      <ion-button fill="none" (click)="presentModal(item)">
+  <ion-button (click)="presentModal()">Ajouter une pizza</ion-button>
+  <ion-list>
+    <ion-item *ngFor="let item of pizzas">
+      <ion-button fill="none">
         <ion-icon name="create-outline" slot="icon-only"></ion-icon>
       </ion-button>
       {{item.nom}}

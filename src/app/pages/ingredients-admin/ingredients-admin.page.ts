@@ -11,17 +11,24 @@ import { ModalController } from '@ionic/angular';
 })
 export class IngredientsAdminPage implements OnInit {
   ingredients: IngredientDto[];
-  constructor(private ingredientService: IngredientService,
-    public modalController: ModalController) { }
+  constructor(
+    private ingredientService: IngredientService,
+    public modalController: ModalController
+  ) { }
 
   async ngOnInit() {
     this.ingredients = await this.ingredientService.getAll().toPromise();
   }
-  async presentModal() {
+
+  async presentModal(ingredient?: IngredientDto) {
     const modal = await this.modalController.create({
       component: AddIngredientComponent,
       swipeToClose: true,
+      componentProps: {
+        'ingredient': ingredient,
+      }
     });
+
     return await modal.present();
   }
 }
